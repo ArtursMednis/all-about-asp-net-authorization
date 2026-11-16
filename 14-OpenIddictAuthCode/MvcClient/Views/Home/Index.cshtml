@@ -1,0 +1,12 @@
+<h1>Authorization code flow</h1>
+
+<p>
+    This app has no login form and never sees a password.
+    When you log in, you are sent to the auth server, log in there,
+    and come back with an authorization code that this app exchanges for tokens.
+</p>
+
+<ul>
+    <li><b>Secret</b> requires a logged-in user and shows the claims and tokens we received.</li>
+    <li><b>Admin</b> requires the <code>IsAdmin</code> claim, which comes from the auth server's userinfo endpoint.</li>
+</ul>

@@ -1,0 +1,14 @@
+<h1>Back-channel logout</h1>
+
+<p>Try this:</p>
+<ol>
+    <li>Open <b>Secret</b> and log in.</li>
+    <li>Open the <a href="https://localhost:7101" target="_blank">auth server</a> in a new tab and click <b>Log out of all apps</b>.</li>
+    <li>Come back here and reload <b>Secret</b>: you have to log in again.</li>
+</ol>
+
+<p>
+    In step 2 the auth server sends this app a <b>logout token</b> directly, server to server.
+    This app never saw the logout happen in the browser - without back-channel logout,
+    you would still be logged in here.
+</p>

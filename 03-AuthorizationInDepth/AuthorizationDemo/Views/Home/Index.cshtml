@@ -1,0 +1,13 @@
+<h1>03 - Authorization in depth</h1>
+
+<p>Same login as tutorial 01. This time: four ways to decide what a logged-in user may do.</p>
+
+<table border="1">
+    <tr><th>Page</th><th>Rule</th><th>user (14 years old)</th><th>admin (Admin role)</th></tr>
+    <tr><td>Secret</td><td>Fallback policy: any logged-in user</td><td>yes</td><td>yes</td></tr>
+    <tr><td>Admin</td><td><code>[Authorize(Roles = "Admin")]</code></td><td>no</td><td>yes</td></tr>
+    <tr><td>Adults</td><td>Custom requirement: at least 18</td><td>no</td><td>yes</td></tr>
+    <tr><td>Documents</td><td>Resource-based: owner or admin may edit</td><td>own only</td><td>all</td></tr>
+</table>
+
+<p>This page is the only public one - every other page requires a login, even without an attribute.</p>

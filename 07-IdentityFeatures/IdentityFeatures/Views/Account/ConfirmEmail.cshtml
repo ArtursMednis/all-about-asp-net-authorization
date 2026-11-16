@@ -1,0 +1,10 @@
+<h1>Confirm email</h1>
+
+@if (ViewBag.Confirmed)
+{
+    <p>Thanks, your email is confirmed. You can <a asp-action="Login">log in</a> now.</p>
+}
+else
+{
+    <p style="color: red">This link is not valid (anymore).</p>
+}

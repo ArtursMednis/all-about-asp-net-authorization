@@ -1,0 +1,13 @@
+<h1>06 - Extending IdentityUser</h1>
+
+<p>
+    Same app as 03, but with our own user class <code>AppUser : IdentityUser</code>
+    that adds a <code>DisplayName</code> property.
+</p>
+
+<ul>
+    <li>Everywhere Identity used <code>IdentityUser</code>, we now use <code>AppUser</code>:
+        <code>AddIdentity&lt;AppUser, ...&gt;</code>, <code>IdentityDbContext&lt;AppUser&gt;</code>,
+        <code>UserManager&lt;AppUser&gt;</code>, <code>SignInManager&lt;AppUser&gt;</code>.</li>
+    <li><b>Secret</b> loads the user with <code>UserManager.GetUserAsync(User)</code> to read <code>DisplayName</code>.</li>
+</ul>

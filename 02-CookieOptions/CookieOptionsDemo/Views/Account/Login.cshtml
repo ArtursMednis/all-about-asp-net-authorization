@@ -1,0 +1,16 @@
+<h1>Login</h1>
+
+@* No asp-action: the form posts back to the current URL, so ?ReturnUrl=... is kept. *@
+<form method="post">
+    <input name="userName" placeholder="User name" />
+    <input name="password" type="password" placeholder="Password" />
+    <label><input name="rememberMe" type="checkbox" value="true" /> Remember me</label>
+    <button type="submit">Login</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color: red">@ViewBag.Error</p>
+}
+
+<p>Try <b>user</b> / <b>user</b> or <b>admin</b> / <b>admin</b>.</p>

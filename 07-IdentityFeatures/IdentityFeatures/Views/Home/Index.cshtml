@@ -1,0 +1,9 @@
+<h1>07 - Identity features</h1>
+
+<p>The Identity app from tutorial 05, plus three features Identity gives you almost for free:</p>
+
+<ul>
+    <li><b>Registration with email confirmation:</b> <a asp-controller="Account" asp-action="Register">register</a>, then open the link from the "email" in the console window.</li>
+    <li><b>Lockout:</b> enter a wrong password three times and the account is locked for a minute.</li>
+    <li><b>Two-factor authentication:</b> log in, open <a asp-controller="TwoFactor" asp-action="Index">Two-factor</a> and connect an authenticator app. From then on, login asks for a code.</li>
+</ul>

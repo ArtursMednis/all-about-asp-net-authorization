@@ -1,0 +1,12 @@
+<h1>11 - Multiple schemes</h1>
+
+<p>One app, two kinds of callers:</p>
+<ul>
+    <li><b>People</b> use these pages and log in with a <b>cookie</b> (tutorial 01).</li>
+    <li><b>Apps</b> call <code>/api/...</code> with a <b>bearer token</b> from <code>POST /api/token</code> (tutorial 10).</li>
+</ul>
+
+<p>
+    A <b>policy scheme</b> looks at each request: with an <code>Authorization: Bearer</code> header it uses JwtBearer,
+    otherwise the cookie. Log in and open <b>Secret</b> to call the API with your cookie.
+</p>

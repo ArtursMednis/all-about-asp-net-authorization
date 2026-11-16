@@ -1,0 +1,17 @@
+<h1>Auth server login</h1>
+
+<p>An app wants you to log in. Your password is only ever sent to this server, never to the app.</p>
+
+@* No asp-action: the form posts back to the current URL, so ?ReturnUrl=... is kept. *@
+<form method="post">
+    <input name="userName" placeholder="User name" />
+    <input name="password" type="password" placeholder="Password" />
+    <button type="submit">Login</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color: red">@ViewBag.Error</p>
+}
+
+<p>Try <b>user</b> / <b>user</b> or <b>admin</b> / <b>admin</b>.</p>

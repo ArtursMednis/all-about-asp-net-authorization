@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TokenAuthApi/TokenAuthApi.csproj" />
+  <Project Path="TokenAuthClient/TokenAuthClient.csproj" />
+</Solution>

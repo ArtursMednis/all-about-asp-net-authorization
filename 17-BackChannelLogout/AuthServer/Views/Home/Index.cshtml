@@ -1,0 +1,19 @@
+<h1>Auth server</h1>
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <p>You are logged in to the auth server as <b>@User.Identity.Name</b>.</p>
+
+    <form asp-controller="Account" asp-action="Logout" method="post">
+        <button type="submit">Log out of all apps</button>
+    </form>
+
+    <p>
+        This ends your session here. IdentityServer then sends a logout token to every app
+        you logged in to through this session - they log you out too.
+    </p>
+}
+else
+{
+    <p>You are not logged in to the auth server.</p>
+}

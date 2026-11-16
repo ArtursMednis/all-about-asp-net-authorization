@@ -1,0 +1,13 @@
+<h1>Two-factor authentication</h1>
+
+<p>Your password was right. Now enter the 6-digit code from your authenticator app.</p>
+
+<form method="post">
+    <input name="code" placeholder="123 456" autocomplete="one-time-code" />
+    <button type="submit">Log in</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color: red">@ViewBag.Error</p>
+}

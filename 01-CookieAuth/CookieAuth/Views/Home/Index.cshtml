@@ -1,0 +1,11 @@
+<h1>01 - Cookie authentication</h1>
+
+<p>
+    The simplest possible login: users live in memory (<code>UserService</code>).
+    On login we create claims and store them in a cookie with <code>SignInAsync</code>.
+</p>
+
+<ul>
+    <li><b>Secret</b> requires any logged-in user (<code>[Authorize]</code>) and shows how to read claims.</li>
+    <li><b>Admin</b> requires the <code>IsAdmin</code> claim (<code>[Authorize(Policy = "AdminOnly")]</code>).</li>
+</ul>

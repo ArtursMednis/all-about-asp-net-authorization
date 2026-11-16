@@ -1,0 +1,21 @@
+# Build output
+bin/
+obj/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.rsuser
+
+# OS
+.DS_Store
+Thumbs.db
+
+# JavaScript
+node_modules/
+dist/
+.angular/
+Bff/wwwroot/

@@ -1,0 +1,12 @@
+<h1>05 - ASP.NET Core Identity</h1>
+
+<p>
+    Same app as 01, but our hand-written <code>UserService</code> and <code>SignInAsync</code> code
+    is replaced by ASP.NET Core Identity: users and their claims live in a database
+    (<code>AppDbContext</code>), and <code>SignInManager.PasswordSignInAsync</code> does the login.
+</p>
+
+<ul>
+    <li><b>Secret</b> shows the claims Identity puts into the cookie (more than we added ourselves in 01).</li>
+    <li><b>Admin</b> requires the <code>IsAdmin</code> claim, stored in the database for the admin user.</li>
+</ul>

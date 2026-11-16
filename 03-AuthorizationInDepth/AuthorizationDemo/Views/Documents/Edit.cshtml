@@ -1,0 +1,13 @@
+@model AuthorizationDemo.Models.Document
+
+<h1>Edit "@Model.Title"</h1>
+
+<p>Owner: @Model.Owner</p>
+
+<form method="post">
+    <input name="title" value="@Model.Title" />
+    <br />
+    <textarea name="content" rows="4" cols="50">@Model.Content</textarea>
+    <br />
+    <button type="submit">Save</button>
+</form>

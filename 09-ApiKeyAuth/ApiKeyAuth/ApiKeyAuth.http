@@ -1,0 +1,21 @@
+### Run these from Visual Studio, Rider or VS Code (REST Client). Start the API first.
+@host = http://localhost:5209
+
+### 1. No key -> 401, WWW-Authenticate says which header to use
+GET {{host}}/api/secret
+
+### 2. Wrong key -> 401 with an error
+GET {{host}}/api/secret
+X-Api-Key: wrong-key
+
+### 3. Client key -> 200
+GET {{host}}/api/secret
+X-Api-Key: key-for-client
+
+### 4. Client key on the admin endpoint -> 403
+GET {{host}}/api/admin
+X-Api-Key: key-for-client
+
+### 5. Admin client key -> 200
+GET {{host}}/api/admin
+X-Api-Key: key-for-admin-client

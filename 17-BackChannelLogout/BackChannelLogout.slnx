@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AuthServer/AuthServer.csproj" />
+  <Project Path="MvcClient/MvcClient.csproj" />
+</Solution>

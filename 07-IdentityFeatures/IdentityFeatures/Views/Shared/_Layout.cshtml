@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>07 - Identity features</title>
+</head>
+<body>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a> |
+        <a asp-controller="Home" asp-action="Secret">Secret</a> |
+        <a asp-controller="Home" asp-action="Admin">Admin</a> |
+        <a asp-controller="TwoFactor" asp-action="Index">Two-factor</a> |
+
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline">
+                Logged in as <b>@User.Identity.Name</b>
+                <button type="submit">Logout</button>
+            </form>
+        }
+        else
+        {
+            <span>
+                <a asp-controller="Account" asp-action="Login">Login</a> |
+                <a asp-controller="Account" asp-action="Register">Register</a>
+            </span>
+        }
+    </nav>
+    <hr />
+
+    @RenderBody()
+</body>
+</html>

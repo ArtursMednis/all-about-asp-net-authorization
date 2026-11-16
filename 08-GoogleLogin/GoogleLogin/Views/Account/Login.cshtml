@@ -1,0 +1,37 @@
+@using Microsoft.AspNetCore.Authentication
+@{
+    IEnumerable<AuthenticationScheme> providers = ViewBag.ExternalProviders;
+}
+
+<h1>Login</h1>
+
+@* No asp-action: the form posts back to the current URL, so ?ReturnUrl=... is kept. *@
+<form method="post">
+    <input name="userName" placeholder="User name" />
+    <input name="password" type="password" placeholder="Password" />
+    <button type="submit">Login</button>
+</form>
+
+<p>Try <b>user</b> / <b>user</b> or <b>admin</b> / <b>admin</b>.</p>
+
+<h2>Or</h2>
+
+@foreach (var provider in providers)
+{
+    <form asp-action="ExternalLogin" asp-route-returnUrl="@Context.Request.Query["ReturnUrl"]" method="post">
+        <button type="submit" name="provider" value="@provider.Name">Log in with @provider.DisplayName</button>
+    </form>
+}
+
+@if (!providers.Any())
+{
+    <p>
+        <i>Google login is not configured yet. Set <code>Authentication:Google:ClientId</code> and
+        <code>ClientSecret</code> in appsettings.json or user secrets, and restart the app.</i>
+    </p>
+}
+
+@if (ViewBag.Error != null)
+{
+    <p style="color: red">@ViewBag.Error</p>
+}

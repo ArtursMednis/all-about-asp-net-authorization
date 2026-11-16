@@ -1,0 +1,27 @@
+### Calls with a bearer token. Run from Visual Studio, Rider or VS Code (REST Client). Start the app first.
+@host = http://localhost:5211
+
+### 1. Get a token
+# @name login
+POST {{host}}/api/token
+Content-Type: application/json
+
+{ "userName": "admin", "password": "admin" }
+
+###
+@token = {{login.response.body.$.access_token}}
+
+### 2. Default scheme with a token -> 200, authenticatedBy is JwtBearer's
+GET {{host}}/api/secret
+Authorization: Bearer {{token}}
+
+### 3. Bearer-only endpoint -> 200
+GET {{host}}/api/bearer-only
+Authorization: Bearer {{token}}
+
+### 4. Policy with a token -> 200 for admin
+GET {{host}}/api/admin
+Authorization: Bearer {{token}}
+
+### 5. No token, no cookie -> 401 (an API endpoint doesn't redirect to the login page)
+GET {{host}}/api/secret

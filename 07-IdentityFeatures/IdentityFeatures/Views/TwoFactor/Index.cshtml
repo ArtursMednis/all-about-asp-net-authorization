@@ -1,0 +1,33 @@
+<h1>Two-factor authentication</h1>
+
+@if (ViewBag.Enabled)
+{
+    <p><b>On.</b> Every login asks for a code from your authenticator app.</p>
+
+    <form asp-action="Disable" method="post">
+        <button type="submit">Turn off</button>
+    </form>
+}
+else
+{
+    <p><b>Off.</b> To turn it on:</p>
+    <ol>
+        <li>
+            Add an account in your authenticator app with this key:
+            <pre>@ViewBag.Key</pre>
+            (or from this link, usually shown as a QR code: <code>@ViewBag.Uri</code>)
+        </li>
+        <li>
+            Enter the 6-digit code the app shows:
+            <form asp-action="Enable" method="post">
+                <input name="code" placeholder="123 456" autocomplete="one-time-code" />
+                <button type="submit">Turn on</button>
+            </form>
+        </li>
+    </ol>
+
+    @if (TempData["Error"] != null)
+    {
+        <p style="color: red">@TempData["Error"]</p>
+    }
+}

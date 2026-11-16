@@ -1,0 +1,27 @@
+@model List<(AuthorizationDemo.Models.Document Document, bool CanEdit)>
+
+<h1>Documents</h1>
+
+<p>Everybody can see the list. Who may edit a document depends on the document itself.</p>
+
+<table border="1">
+    <tr><th>Title</th><th>Owner</th><th></th></tr>
+    @foreach (var (document, canEdit) in Model)
+    {
+        <tr>
+            <td>@document.Title</td>
+            <td>@document.Owner</td>
+            <td>
+                @if (canEdit)
+                {
+                    <a asp-action="Edit" asp-route-id="@document.Id">Edit</a>
+                }
+                else
+                {
+                    @* The link is hidden, but the Edit action checks again - try /Documents/Edit/@document.Id *@
+                    <span>read only (try <a asp-action="Edit" asp-route-id="@document.Id">/Documents/Edit/@document.Id</a> anyway)</span>
+                }
+            </td>
+        </tr>
+    }
+</table>
